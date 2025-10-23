@@ -284,7 +284,9 @@ public double getTotalPrice() {
 
 ### Biên Dịch và Chạy
 
-Chạy file run.bat có sẵn
+Download và sử dụng file run.bat để chạy chương trình trên
+
+---
 
 ## 📺 Output Mẫu
 
@@ -391,3 +393,199 @@ public void addTopping(String name, double price) {
 
 ```java
 Item
+└── Burger
+    └── DeluxeBurger
+```
+
+**Lợi ích**: Tái sử dụng code, mở rộng chức năng
+
+---
+
+### 3. Polymorphism (Đa hình)
+
+```java
+Item item = new Burger("Beef", 5.50);
+double price = item.getAdjustedPrice(); // Gọi method của Burger
+```
+
+**Lợi ích**: Linh hoạt, dễ mở rộng, code generic
+
+---
+
+### 4. Abstraction (Trừu tượng)
+
+```java
+public abstract class Item {
+    public abstract double getAdjustedPrice();
+}
+```
+
+**Lợi ích**: Ẩn chi tiết, interface chung, buộc implement
+
+---
+
+## 🎨 Design Patterns
+
+### 1. Template Method Pattern
+
+```java
+// Item định nghĩa template
+public void printItem() {
+    System.out.printf("%-20s $%5.2f%n", getName(), getAdjustedPrice());
+}
+
+// Burger override để tùy chỉnh
+@Override
+public void printItem() {
+    super.printItem(); // Có thể gọi base implementation
+    // Thêm logic riêng
+}
+```
+
+---
+
+### 2. Delegation Pattern
+
+```java
+public class MealOrder {
+    public void addBurgerTopping(String name, double price) {
+        burger.addTopping(name, price); // Ủy thác cho burger
+    }
+}
+```
+
+---
+
+### 3. Factory Pattern (Implicit)
+
+```java
+// Anonymous class creation
+toppings.add(new Item(name, "Topping", price) {});
+```
+
+---
+
+## 📊 So Sánh Regular vs Deluxe Burger
+
+| Tiêu Chí | Regular Burger | Deluxe Burger |
+|----------|----------------|---------------|
+| **Số topping tối đa** | 3 | 5 |
+| **Cách tính giá** | Giá gốc + topping | Giá cố định |
+| **Bao gồm drink/side** | ❌ Không | ✅ Có |
+| **Giá thay đổi khi thêm topping** | ✅ Có | ❌ Không |
+| **Use case** | Bữa ăn thông thường | Combo khuyến mãi |
+
+---
+
+## 🔮 Mở Rộng Tương Lai
+
+### Tính Năng Có Thể Thêm
+
+- [ ] **Menu System** - Quản lý thực đơn với giá cố định
+- [ ] **Customer Management** - Lưu thông tin khách hàng
+- [ ] **Payment System** - Xử lý thanh toán
+- [ ] **Discount System** - Áp dụng mã giảm giá
+- [ ] **Order History** - Lịch sử đơn hàng
+- [ ] **Remove Topping** - Xóa topping đã thêm
+- [ ] **Persistence** - Lưu/Load đơn hàng từ file
+- [ ] **GUI** - Giao diện đồ họa với JavaFX/Swing
+
+### Classes Có Thể Thêm
+
+```java
+Menu           // Quản lý danh sách món ăn
+Customer       // Thông tin khách hàng
+Payment        // Xử lý thanh toán
+Discount       // Mã giảm giá
+OrderHistory   // Lịch sử đơn hàng
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Lỗi: "cannot find symbol"
+
+**Nguyên nhân**: Sai package name hoặc import
+
+**Giải pháp**: Kiểm tra package declaration và import statements
+
+```java
+// Đảm bảo package name đúng
+package com.burgers.item;
+
+// Import đúng các class cần thiết
+import com.burgers.item.*;
+```
+
+---
+
+### Lỗi: "bad source file"
+
+**Nguyên nhân**: Package name không khớp với cấu trúc thư mục
+
+**Giải pháp**: Đảm bảo:
+- File `Burger.java` trong `src/com/burgers/item/`
+- Package declaration: `package com.burgers.item;`
+
+---
+
+### Lỗi: Ký tự lỗi trong comment
+
+**Nguyên nhân**: File encoding không đúng (UTF-8)
+
+**Giải pháp**: 
+```bash
+# Compile với encoding UTF-8
+javac -encoding UTF-8 src/com/burgers/**/*.java
+```
+
+---
+
+## 📚 Tài Liệu Tham Khảo
+
+- [Java OOP Concepts](https://docs.oracle.com/javase/tutorial/java/concepts/)
+- [Design Patterns](https://refactoring.guru/design-patterns)
+- [Java Collections Framework](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/)
+- [Effective Java - Joshua Bloch](https://www.oreilly.com/library/view/effective-java/9780134686097/)
+
+---
+
+## 👨‍💻 Thông Tin Tác Giả
+
+- **Author**: fishsauce-05
+- **Date**: 2025-10-23
+- **GitHub**: [@fishsauce-05](https://github.com/fishsauce-05)
+- **Purpose**: Educational demonstration of OOP concepts
+
+---
+
+## 📄 License
+
+This project is created for educational purposes.
+
+---
+
+## 🙏 Acknowledgments
+
+- Cảm ơn cộng đồng Java
+- Inspired by real-world restaurant ordering systems
+- Built for learning OOP principles
+
+---
+
+## 📞 Contact
+
+Có câu hỏi? Liên hệ qua:
+- GitHub Issues
+- Email: [ngoducmanh1512@gmail.com]
+
+---
+
+<div align="center">
+
+**⭐ Nếu thấy hữu ích, hãy star repo này! ⭐**
+
+Made with ❤️ and ☕
+
+</div>
