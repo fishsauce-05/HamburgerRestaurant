@@ -284,36 +284,7 @@ public double getTotalPrice() {
 
 ### Biên Dịch và Chạy
 
-#### Cách 1: Sử dụng Command Line
-
-```bash
-# Di chuyển vào thư mục dự án
-cd BurgerRestaurant
-
-# Biên dịch tất cả các file
-javac -d bin src/com/burgers/**/*.java src/com/burgers/*.java
-
-# Chạy chương trình
-java -cp bin com.burgers.Main
-```
-
-#### Cách 2: Compile trực tiếp
-
-```bash
-# Biên dịch
-javac src/com/burgers/item/*.java src/com/burgers/order/*.java src/com/burgers/Main.java
-
-# Chạy
-java -cp src com.burgers.Main
-```
-
-#### Cách 3: Sử dụng IDE
-
-1. Mở dự án trong IDE
-2. Run `Main.java`
-3. Xem output trong Console
-
----
+Chạy file run.bat có sẵn
 
 ## 📺 Output Mẫu
 
