@@ -6,7 +6,6 @@ public class DeluxeBurger extends Burger {
         super(name, price, 5);
     }
 
-    // Override method to ensure price doesn't change
     @Override
     public double getAdjustedPrice() {
         return super.getBasePrice();

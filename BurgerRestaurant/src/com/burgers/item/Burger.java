@@ -13,7 +13,7 @@ public class Burger extends Item {
         this.toppings = new ArrayList<>();
     }
 
-    // Protected constructor for subclass usage
+
     protected Burger(String name, double price, int maxToppings) {
         super(name, "Burger", price);
         this.maxToppings = maxToppings;
